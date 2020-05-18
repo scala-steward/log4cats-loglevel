@@ -28,7 +28,7 @@ lazy val root = project
     moduleName := "log4cats-loglevel",
     libraryDependencies ++= Seq(
       "org.typelevel"     %%% "cats-effect"   % "2.1.3",
-      "io.chrisdavenport" %%% "log4cats-core" % "1.1.1"
+      "io.chrisdavenport" %%% "log4cats-core" % "1.0.1" //"1.1.1"
     ),
     npmDependencies in Compile ++= Seq(
       "loglevel" -> "1.6.8"
@@ -40,7 +40,10 @@ lazy val root = project
         Some("scm:git:git@github.com:rpiaggio/log4cats-loglevel.git")
       )
     ),
-    pomIncludeRepository := { _ => false }
+    pomIncludeRepository := { _ => false },
+    stMinimize := Selection.AllExcept("main_js_library"),
+    stOutputPackage := "loglevel",
+    stUseScalaJsDom := true
   )
   .enablePlugins(ScalaJSPlugin, ScalablyTypedConverterPlugin)
 

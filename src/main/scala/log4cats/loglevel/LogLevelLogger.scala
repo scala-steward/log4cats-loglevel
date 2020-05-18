@@ -21,6 +21,8 @@ object LogLevelLogger {
 
   private val throwableFormatter = new StandardThrowableFormatter()
 
+  object LogLevelDesc extends LogLevelDesc
+
   val Level = LogLevelDesc
 
   def setLevel(level:        LogLevelDesc): Unit = ^.setLevel(level)
